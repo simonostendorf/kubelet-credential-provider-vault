@@ -1,0 +1,22 @@
+name: Stale
+on:
+  schedule:
+    - cron: "0 0 * * *" # every day at midnight UTC
+permissions: read-all
+jobs:
+  close-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@v9
+        with:
+          stale-issue-label: "state: stale"
+          days-before-issue-stale: 90
+          days-before-issue-close: 30
+          stale-issue-message: "This issue was marked as stale because it has been open for 90 days with no activity."
+          close-issue-message: "This issue was closed because there was no activity for 30 days after it was marked as stale."
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          exempt-issue-labels: "ci: dont-mark-stale"

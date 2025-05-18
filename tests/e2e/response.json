@@ -1,0 +1,11 @@
+{
+  "kind": "CredentialProviderResponse",
+  "apiVersion": "credentialprovider.kubelet.k8s.io/v1",
+  "cacheKeyType": "Registry",
+  "auth": {
+    "registry.k8s.io": {
+      "username": "username",
+      "password": "password"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+services:
+  vault:
+    container_name: kubelet-credential-provider-vault-e2e-vault
+    hostname: vault.local
+    image: hashicorp/vault:latest
+    restart: unless-stopped
+    networks:
+      - kubelet-credential-provider-vault-e2e
+    ports:
+      - 8200:8200
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -dev -dev-listen-address=0.0.0.0:8200 -dev-root-token-id=vault-root-token
+  k3s:
+    container_name: kubelet-credential-provider-vault-e2e-k3s
+    hostname: k3s.local
+    image: rancher/k3s:latest
+    privileged: true
+    restart: unless-stopped
+    networks:
+      - kubelet-credential-provider-vault-e2e
+    ports:
+      - 6443:6443
+    environment:
+      - K3S_NODE_NAME=kubelet-credential-provider-vault-e2e
+      - K3S_KUBECONFIG_OUTPUT=/output/kubeconfig.yaml
+      - K3S_KUBECONFIG_MODE=666
+    volumes:
+      - ./:/output
+    command:
+      - server
+      - --tls-san=k3s.local
+networks:
+  kubelet-credential-provider-vault-e2e:
+    name: kubelet-credential-provider-vault-e2e
+    driver: bridge

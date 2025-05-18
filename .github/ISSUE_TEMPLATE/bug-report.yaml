@@ -1,0 +1,52 @@
+name: Bug Report
+description: Report a bug in the application, the documentation or other parts of the project
+labels: ["type: bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please fill out the details below as thoroughly as possible.
+  - type: textarea
+    id: description
+    attributes:
+      label: 📚 Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug you're experiencing...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 🧪 Steps to Reproduce
+      description: Detailed steps to reproduce the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Expected Behavior
+      description: What did you expect to happen instead?
+      placeholder: I expected that...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 📷 Screenshots
+      description: Add screenshots if they help explain the issue.
+      placeholder: You can drag and drop images here or paste image links.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: ℹ️ Additional Context
+      description: Any other relevant info, logs, or system details that might help.
+      placeholder: OS, browser version, CLI version, etc.

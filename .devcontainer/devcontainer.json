@@ -1,0 +1,55 @@
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/robbert229/devcontainer-features/opentofu:1": {
+      "version": "1.9.0"
+    },
+    "ghcr.io/devcontainers-extra/features/terraform-docs:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.24.3"
+    },
+    "ghcr.io/szkiba/devcontainer-features/gosec:1": {}
+  },
+  "forwardPorts": [
+    8200, // vault
+    6443 // k3s
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "pkief.material-icon-theme",
+        "oderwat.indent-rainbow",
+        "usernamehw.errorlens",
+        "github.copilot",
+        "github.copilot-chat",
+        "gruntfuggly.todo-tree",
+        "eamodio.gitlens",
+        "github.vscode-github-actions",
+        "bierner.markdown-emoji",
+        "ms-vscode.makefile-tools",
+        "redhat.vscode-yaml",
+        "gamunu.opentofu",
+        "ms-azuretools.vscode-docker",
+        "golang.go"
+      ],
+      "settings": {
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "files.insertFinalNewline": true,
+        "terminal.integrated.fontFamily": "MesloLGS NF",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "icon": "terminal-linux",
+            "path": "zsh"
+          }
+        },
+        "todo-tree.highlights.useColourScheme": true
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "pkief.material-icon-theme",
+    "oderwat.indent-rainbow",
+    "usernamehw.errorlens",
+    "github.copilot",
+    "github.copilot-chat",
+    "gruntfuggly.todo-tree",
+    "eamodio.gitlens",
+    "github.vscode-github-actions",
+    "bierner.markdown-emoji",
+    "ms-vscode.makefile-tools",
+    "redhat.vscode-yaml",
+    "gamunu.opentofu",
+    "ms-azuretools.vscode-docker",
+    "golang.go"
+  ]
+}

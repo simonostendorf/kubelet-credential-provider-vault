@@ -1,0 +1,35 @@
+name: Feature Request
+description: Suggest an idea for the application, the documentation, or other parts of the project
+labels: ["type: feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🚀 Thanks for suggesting a feature! Please provide as much detail as possible to help us understand your request.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📚 Description
+      description: A clear and concise description of what you want to happen.
+      placeholder: I would like to see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 💡 Alternatives Considered
+      description: Describe any alternative solutions or features you’ve considered and why they don't work for you.
+      placeholder: |
+        - I tried doing X, but it wasn't ideal because...
+        - A workaround I found was Y, but...
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: ℹ️ Additional Context
+      description: Add any other context, implementation ideas, or screenshots to help us understand your request.
+      placeholder: You can include diagrams, screenshots, or use cases here.

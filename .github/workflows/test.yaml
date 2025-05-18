@@ -1,0 +1,62 @@
+name: Test
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  push:
+    branches:
+      - main
+permissions: read-all
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Run Unit Tests
+        run: make test
+      - name: Analyse Coverage
+        uses: vladopajic/go-test-coverage@v2
+        with:
+          profile: coverage.out
+          local-prefix: github.com/${{ github.repository }}
+          threshold-file: 0
+          threshold-package: 0
+          threshold-total: 0
+  e2e-tests:
+    name: e2e Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.9.1
+      - name: Build Application
+        run: make build
+      - name: Setup e2e Tests
+        run: make e2e-init
+      - name: Run e2e Tests
+        run: make e2e
+      - name: Clean Up Tests
+        run: make e2e-cleanup

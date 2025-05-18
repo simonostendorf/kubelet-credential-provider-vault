@@ -1,0 +1,62 @@
+"area: github-actions":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/actions/*.yaml
+          - .github/workflows/*.yaml
+          - .github/labeler.yaml
+          - .github/dependabot.yaml
+
+"area: github":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/pull_request_template.md
+          - .github/ISSUE_TEMPLATE/*
+          - CODEOWNERS
+
+"area: git":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .gitignore
+
+"area: devcontainer":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .devcontainer/*
+
+"area: vscode":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .vscode/*
+
+"area: docs":
+  - changed-files:
+      - any-glob-to-any-file:
+          - README.md
+          - LICENSE.md
+          - CONTRIBUTING.md
+          - CODE_OF_CONDUCT.md
+          - SECURITY.md
+
+"area: utils":
+  - changed-files:
+      - any-glob-to-any-file:
+          - Makefile
+
+"area: golang":
+  - changed-files:
+      - any-glob-to-any-file:
+          - go.mod
+          - go.sum
+          - "**/*.go"
+
+"area: tests":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*_test.go"
+          - tests/*
+
+"area: config":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .env*
+          - kubelet-credential-provider-vault.yaml*

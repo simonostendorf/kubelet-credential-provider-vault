@@ -1,0 +1,7 @@
+{
+  "apiVersion": "credentialprovider.kubelet.k8s.io/v1",
+  "kind": "CredentialProviderRequest",
+  "image": "registry.k8s.io/pause:3.9",
+  "serviceAccountToken": "xxx",
+  "serviceAccountAnnotations": {}
+}
