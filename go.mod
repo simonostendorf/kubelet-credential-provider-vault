@@ -7,7 +7,7 @@ toolchain go1.24.3
 require (
 	github.com/hashicorp/vault-client-go v0.4.3
 	github.com/joho/godotenv v1.5.1
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
 	k8s.io/apimachinery v0.33.4
 	k8s.io/kubelet v0.33.4
