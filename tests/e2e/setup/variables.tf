@@ -4,7 +4,7 @@ variable "kubeconfig_path" {
 }
 
 variable "kube_host" {
-  description = "Kubernetes Host Address that will be used by Vault to connect to the TokenReviewer API of the Kubernetes Cluster. Address and cluster must be accessable by Vault."
+  description = "Kubernetes Host Address that will be used by Vault to connect to the TokenReviewer API of the Kubernetes Cluster. Address and cluster must be accessible by Vault."
   type        = string
   default     = "https://k3s.local:6443"
 }
