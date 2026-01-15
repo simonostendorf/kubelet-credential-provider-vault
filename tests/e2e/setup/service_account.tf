@@ -10,7 +10,7 @@ resource "kubernetes_secret_v1" "example_token" {
     annotations = {
       "kubernetes.io/service-account.name" = kubernetes_service_account_v1.example.metadata.0.name
     }
-    name     = kubernetes_service_account_v1.example.metadata.0.name
+    name      = kubernetes_service_account_v1.example.metadata.0.name
     namespace = kubernetes_service_account_v1.example.metadata.0.namespace
   }
   type                           = "kubernetes.io/service-account-token"

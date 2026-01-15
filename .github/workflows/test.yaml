@@ -54,6 +54,10 @@ jobs:
           tofu_version: 1.9.1
       - name: Build Application
         run: make build
+      - name: Prepare Environment
+        run: |
+          export VAULT_ADDR="http://127.0.0.1:8200"
+          export KUBE_HOST="https://127.0.0.1:6443"
       - name: Setup e2e Tests
         run: make e2e-init
       - name: Run e2e Tests

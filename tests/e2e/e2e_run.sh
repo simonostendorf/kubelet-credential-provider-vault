@@ -10,7 +10,7 @@ REQUEST=$(jq ".serviceAccountToken=\""$(cat ./service-account-token.tmp)"\"" ./r
 
 RESPONSE=$(echo $REQUEST | ../../bin/kubelet-credential-provider-vault_${GOOS}_${GOARCH} \
   --log-level=debug \
-  --vault-addr="http://127.0.0.1:8200" \
+  --vault-addr=${VAULT_ADDR:-"http://127.0.0.1:8200"} \
   --vault-auth-method=kubernetes \
   --vault-auth-mount=kubernetes \
   --vault-auth-role=example \

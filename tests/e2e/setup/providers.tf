@@ -17,8 +17,7 @@ terraform {
 }
 
 provider "vault" {
-  address = var.vault_addr
-  token   = var.vault_root_token
+  token = var.vault_root_token
 }
 
 provider "kubernetes" {
