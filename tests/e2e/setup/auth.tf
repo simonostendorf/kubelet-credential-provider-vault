@@ -1,11 +1,11 @@
 resource "vault_auth_backend" "kubernetes" {
-  path        = "kubernetes"
-  type        = "kubernetes"
+  path = "kubernetes"
+  type = "kubernetes"
 }
 
 resource "vault_kubernetes_auth_backend_config" "this" {
-  backend         = vault_auth_backend.kubernetes.path
-  kubernetes_host = "https://k3s.local:6443"
+  backend            = vault_auth_backend.kubernetes.path
+  kubernetes_host    = var.kube_host
   kubernetes_ca_cert = base64decode(yamldecode(data.local_file.kubeconfig.content)["clusters"][0]["cluster"]["certificate-authority-data"])
   token_reviewer_jwt = data.kubernetes_secret_v1.vault_token_reviewer_token.data["token"]
 }
@@ -34,7 +34,7 @@ resource "kubernetes_secret_v1" "vault_token_reviewer_token" {
     annotations = {
       "kubernetes.io/service-account.name" = kubernetes_service_account_v1.vault_token_reviewer.metadata.0.name
     }
-    name     = kubernetes_service_account_v1.vault_token_reviewer.metadata.0.name
+    name      = kubernetes_service_account_v1.vault_token_reviewer.metadata.0.name
     namespace = kubernetes_service_account_v1.vault_token_reviewer.metadata.0.namespace
   }
   type                           = "kubernetes.io/service-account-token"

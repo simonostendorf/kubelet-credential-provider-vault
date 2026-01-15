@@ -54,6 +54,12 @@ jobs:
           tofu_version: 1.9.1
       - name: Build Application
         run: make build
+      - name: Prepare Environment
+        run: |
+          echo "VAULT_ADDR=http://127.0.0.1:8200" >> "$GITHUB_ENV"
+          echo "Saving VAULT_ADDR=http://127.0.0.1:8200 in GitHub Environment"
+          echo "KUBE_HOST=https://127.0.0.1:6443" >> "$GITHUB_ENV"
+          echo "Saving KUBE_HOST=https://127.0.0.1:6443 in GitHub Environment"
       - name: Setup e2e Tests
         run: make e2e-init
       - name: Run e2e Tests
