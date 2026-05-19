@@ -7,7 +7,7 @@
     "ghcr.io/devcontainers-extra/features/terraform-docs:1": {
       "version": "latest"
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:3": {},
     "ghcr.io/devcontainers/features/go:1": {
       "version": "1.24.3"
     },
