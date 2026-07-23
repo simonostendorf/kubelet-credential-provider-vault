@@ -7,7 +7,7 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	k8s.io/apimachinery v0.36.2
+	k8s.io/apimachinery v0.36.3
 	k8s.io/kubelet v0.36.2
 )
 
@@ -47,5 +47,5 @@ require (
 	k8s.io/utils v0.0.0-20260210185600-b8788abfbbc2 // indirect
 	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
-	sigs.k8s.io/structured-merge-diff/v6 v6.3.2 // indirect
+	sigs.k8s.io/structured-merge-diff/v6 v6.3.3 // indirect
 )
