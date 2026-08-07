@@ -25,7 +25,7 @@ jobs:
       - name: Run Unit Tests
         run: make test
       - name: Analyse Coverage
-        uses: vladopajic/go-test-coverage@v2.18.9
+        uses: vladopajic/go-test-coverage@v2.19.0
         with:
           profile: coverage.out
           local-prefix: github.com/${{ github.repository }}
